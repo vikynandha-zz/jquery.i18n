@@ -16,7 +16,7 @@ jQuery( document ).ready( function ( $ ) {
 		kittens = $( '.kittens' ).val();
 		$( '.result' )
 			.text( $.i18n( message, person, kittens, sex ) )
-			.prop( 'title', message.toLocaleString() );
+			.attr( 'title', message.toLocaleString() );
 	}
 	updateText();
 	$( '.kittens, .person, .language' ).on( 'change keyup', updateText );
