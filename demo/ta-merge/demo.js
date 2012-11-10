@@ -4,19 +4,29 @@ jQuery( document ).ready( function ( $ ) {
 	var i18n = $.i18n();
 	//i18n.destroy();
 
-	var message = '{{grammar:merge|$1}}';
+	var message;
 
 	function updateText( e ) {
-		var input;
+
+		var $this = $( this ), input;
 		i18n.locale = 'ta';
-		input = $( '#prefix' ).val() + ' ' + $( '#suffix' ).val();
+		input = $this.find( '.prefix' ).val() + ' ' + $this.find( '.suffix' ).val();
+
+		if ( $this.find( '.prefix' ).data( 'i18n-type' ) === 'name' ) {
+			message = '{{grammar:mergeNameSuffix|$1}}';
+		} else {
+			message = '{{grammar:merge|$1}}';
+		}
+
+		//console.log( message );
 
 		$( '#result' )
 			.text( $.i18n( message, input ) )
 			.attr( 'title', message.toLocaleString() );
+
 		e.preventDefault();
 		e.stopPropagation();
 	}
 
-	$( '#merge-form' ).on( 'submit', updateText );
+	$( 'form' ).on( 'submit', updateText );
 } );

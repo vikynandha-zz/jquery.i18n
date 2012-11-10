@@ -38,10 +38,18 @@
 				jQuery i18n Demo
 			</p>
 		</header>
-		<form class="lead form-inline" id="merge-form">
+		<form class="lead form-inline">
 
-			<input type="text" id="prefix"> +
-			<input type="text" id="suffix">
+			<input type="text" class="prefix" data-i18n-type="name" placeholder="Name of a person"> +
+			<input type="text" class="suffix" placeholder="Suffix">
+			<button type="submit" class="btn btn-primary">Merge</button>
+
+		</form>
+
+		<form class="lead form-inline">
+
+			<input type="text" class="prefix" placeholder="Any Tamil word"> +
+			<input type="text" class="suffix" placeholder="Another word">
 			<button type="submit" class="btn btn-primary">Merge</button>
 
 		</form>
