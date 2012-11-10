@@ -3,6 +3,41 @@ jQuery( document ).ready( function ( $ ) {
 	$.i18n.debug = true;
 	var i18n = $.i18n();
 	//i18n.destroy();
+
+	$.extend( $.i18n.parser.emitter, {
+		concatspecial: function( nodes ) {
+			if( i18n.locale !== 'ta' ) {
+				return _concat( nodes );
+			}
+
+			var result = '', getSuffix = function( original ) {
+				return {
+					'அ':'',
+					'ஆ': 'ா',
+					'இ': 'ி',
+					'ஈ': 'ீ',
+					'உ': 'ு',
+					'ஊ': 'ூ',
+					'எ': 'ெ',
+					'ஏ': 'ே',
+					'ஐ': 'ை',
+					'ஒ': 'ொ',
+					'ஓ': 'ோ',
+					'ஔ': 'ௌ'
+				} [ original ];
+			};
+
+			$.each( nodes, function ( i, node ) {
+				if ( i === 0 ) {
+					result = node;
+				} else {
+					result += ( /.*[இஈஐிீை]$/.test( result ) ? 'ய' : 'வ' ) + node.replace( /^[அ-ஔ]/, getSuffix( node[0] ) );
+				}
+			} );
+			return result;
+		}
+	} );
+
 	var message = '$1 has $2 {{plural:$2|kitten|kittens}}. ' +
 		'{{gender:$3|He|She}} loves to play with {{plural:$2|it|them}}.';
 

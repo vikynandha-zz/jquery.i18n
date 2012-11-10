@@ -1,5 +1,5 @@
 {
 	"Meera": "மீரா",
 	"Harry": "ஹாரி",
-	"$1 has $2 {{plural:$2|kitten|kittens}}. {{gender:$3|He|She}} loves to play with {{plural:$2|it|them}}." : "{{grammar:join__இடம்|$1}} {{plural:$2|ஓரு பூனை|$2 பூனைகள்}} {{plural:$2|உள்ளது|உள்ளன}}. {{gender:$3|அவன்|அவள்}} {{plural:$2|அதனுடன்|அவற்றுடன்}} விளையாட {{gender:$3|விரும்புவான்|விரும்புவாள்}}."
+	"$1 has $2 {{plural:$2|kitten|kittens}}. {{gender:$3|He|She}} loves to play with {{plural:$2|it|them}}." : "{{grammar:merge|அகிலன் இடம்}} {{plural:$2|ஓரு பூனை|$2 பூனைகள்}} {{plural:$2|உள்ளது|உள்ளன}}. {{gender:$3|அவன்|அவள்}} {{plural:$2|அதனுடன்|அவற்றுடன்}} விளையாட {{gender:$3|விரும்புவான்|விரும்புவாள்}}."
 }
